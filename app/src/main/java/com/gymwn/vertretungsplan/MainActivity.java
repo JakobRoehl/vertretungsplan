@@ -9,6 +9,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.DragEvent;
 import android.view.Gravity;
@@ -59,6 +61,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
+        if(id != R.id.github)
         toolbar_text.setText(item.getTitle());
         switch (id) {
             case R.id.menu_plan:
@@ -66,6 +69,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.menu_info:
                 setFragment(new Fragment_Info());
+                break;
+            case R.id.github:
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/JakobRoehl/vertretungsplan"));
+                startActivity(browserIntent);
                 break;
             default:
         }
