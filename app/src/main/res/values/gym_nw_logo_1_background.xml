@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="gym_nw_logo_1_background">#FFFFFF</color>
+    <color name="gym_nw_logo_1_background">@color/colorPrimary</color>
 </resources>
