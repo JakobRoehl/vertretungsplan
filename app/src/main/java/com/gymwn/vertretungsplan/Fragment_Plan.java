@@ -17,37 +17,29 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
-
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
-
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.concurrent.ExecutionException;
 
 
 public class Fragment_Plan extends Fragment {
     private ProgressDialog mainloaderdialog;
+    private View view;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_plan, container,false);
+        view = inflater.inflate(R.layout.fragment_plan, container,false);
         try {
-            HTMLgetter("https://h2903870.stratoserver.net/schueler/schueler.htm", view);
+            HTMLgetter("https://h2903870.stratoserver.net/schueler/schueler.htm");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -99,10 +91,10 @@ public class Fragment_Plan extends Fragment {
         }
 
     }
-    public void HTMLgetter(final String surl, final View view) throws IOException {
+    public void HTMLgetter(final String surl) throws IOException {
 
         if(isNetworkAvailable()) {
-            mainloaderdialog = new ProgressDialog(getActivity(), R.style.black_dialog);
+            mainloaderdialog = new ProgressDialog(getActivity(), R.style.black_specs);
             mainloaderdialog.setMessage("Empfange Daten");
             mainloaderdialog.setCancelable(false);
             mainloaderdialog.show();
@@ -137,7 +129,7 @@ public class Fragment_Plan extends Fragment {
                         public void onClick(DialogInterface dialog, int id) {
                             dialog.cancel();
                             try {
-                                HTMLgetter(surl, view);
+                                HTMLgetter(surl);
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
