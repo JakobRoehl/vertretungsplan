@@ -14,6 +14,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -25,12 +27,16 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.lang.reflect.Array;
+import java.util.Iterator;
 import java.util.concurrent.ExecutionException;
 
 
@@ -38,17 +44,100 @@ public class Fragment_Plan extends Fragment {
     private ProgressDialog mainloaderdialog;
     private View view;
     private Spinner day_spinner, class_spinner;
+    private String day1, day2;
+    private String[] days = new String[2];
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_plan, container,false);
-        TextView tv = (TextView)view.findViewById(R.id.text1);
+        final TextView tv = (TextView)view.findViewById(R.id.text1);
+        final Spinner dayspinner = view.findViewById(R.id.day_spinner);
+        final Spinner class_spinner = view.findViewById(R.id.class_spinner);
+        JSONObject jsonObject = new JSONObject();
+        JSONObject jsonObject2 = new JSONObject();
         try {
-            tv.setText(JSONgetter("https://h2903870.stratoserver.net/schueler/schueler.htm"));
+            day1 = JSONgetter("https://h2903870.stratoserver.net/schueler/schueler.htm");
+            day2 = JSONgetter("https://h2903870.stratoserver.net/schueler/schueler2.htm");
+            jsonObject = new JSONObject(day1);
+            jsonObject2 = new JSONObject(day2);
+            try {
+                days[0] = jsonObject.names().get(0).toString();
+                days[1] = jsonObject2.names().get(0).toString();
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
+
+
+        JSONObject JSONday1 = null;
+        JSONObject JSONday2 = null;
+
+
+        try {
+            JSONday1 = jsonObject.getJSONObject(days[0]);
+            JSONday2 = jsonObject2.getJSONObject(days[1]);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        final String[] classesday1 = new String[JSONday1.length()];
+        final String[] classesday2 = new String[JSONday2.length()];
+
+        for(int j = 0; j < JSONday1.length(); j++) {
+            try {
+                classesday1[j] = String.valueOf(JSONday1.names().get(j));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        for(int k = 0; k < JSONday2.length(); k++) {
+            try {
+                classesday2[k] = String.valueOf(JSONday2.names().get(k));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
+        ArrayAdapter<String> dayadapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, days);
+        dayspinner.setAdapter(dayadapter);
+
+        tv.setText(day1);
+
+        dayspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                ArrayAdapter<String> classadapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, classesday1);
+                switch(i) {
+                    case 0:
+                        classadapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, classesday1);
+                        break;
+                    case 1:
+                        classadapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, classesday2);
+                        break;
+                    default:
+                }
+                class_spinner.setAdapter(classadapter);
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                ArrayAdapter<String> classadapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, classesday1);
+                class_spinner.setAdapter(classadapter);
+            }
+
+        });
+        //ArrayAdapter<String> classadapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, classes);
+        //dayspinner.setAdapter(classadapter);
+
 
 
         return view;
