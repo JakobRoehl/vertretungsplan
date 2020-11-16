@@ -36,21 +36,10 @@
     </androidx.cardview.widget.CardView>
 
 
-
-
-    <androidx.core.widget.NestedScrollView
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:id="@+id/text1"
-            android:textColor="#000"
-            android:text="TEST"/>
-
-    </androidx.core.widget.NestedScrollView>
+        android:layout_height="match_parent"
+        android:id="@+id/lesson_recyclerview"/>
 
 
 </LinearLayout>

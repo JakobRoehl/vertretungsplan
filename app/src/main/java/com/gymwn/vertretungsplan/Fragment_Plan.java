@@ -23,6 +23,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
@@ -36,7 +41,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 
@@ -46,12 +53,14 @@ public class Fragment_Plan extends Fragment {
     private Spinner day_spinner, class_spinner;
     private String day1, day2;
     private String[] days = new String[2];
-
+    private RecyclerView lesson_recyclerview;
+    private List<LessonRecyclerviewSetterGetter> details;
+    private LessonRecyclerviewAdapter lessonRecyclerviewAdapter;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_plan, container,false);
-        final TextView tv = (TextView)view.findViewById(R.id.text1);
+
         final Spinner dayspinner = view.findViewById(R.id.day_spinner);
         final Spinner class_spinner = view.findViewById(R.id.class_spinner);
         JSONObject jsonObject = new JSONObject();
@@ -108,7 +117,7 @@ public class Fragment_Plan extends Fragment {
         ArrayAdapter<String> dayadapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, days);
         dayspinner.setAdapter(dayadapter);
 
-        tv.setText(day1);
+
 
         dayspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -138,10 +147,25 @@ public class Fragment_Plan extends Fragment {
         //ArrayAdapter<String> classadapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, classes);
         //dayspinner.setAdapter(classadapter);
 
+        lesson_recyclerview = (RecyclerView)view.findViewById(R.id.lesson_recyclerview);
+
+        details = new ArrayList<>();
+        lessonRecyclerviewAdapter = new LessonRecyclerviewAdapter(getActivity(), details);
+
+  //      RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        //lesson_recyclerview.setLayoutManager(layoutManager);
+//        lesson_recyclerview.setItemAnimator(new DefaultItemAnimator());
+
+        //lesson_recyclerview.setAdapter(lessonRecyclerviewAdapter);
+
 
 
         return view;
     }
+    private void prepareDetails(String s) {
+
+    }
+
     public class myAsyncTask extends AsyncTask<String, String, String> {
         public String html;
 
