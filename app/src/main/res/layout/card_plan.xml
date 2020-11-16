@@ -58,7 +58,6 @@
                 android:textStyle="bold"
                 android:textColor="@color/colorPrimary"
                 android:background="@drawable/rectangle"
-                android:backgroundTint=""
                 android:layout_centerVertical="true"
                 android:layout_alignParentEnd="true"/>
 
