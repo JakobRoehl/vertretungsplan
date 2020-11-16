@@ -41,7 +41,7 @@ public class Fragment_Plan extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_plan, container,false);
         try {
-            HTMLgetter("https://h2903870.stratoserver.net/schueler/schueler2.htm");
+            HTMLgetter("https://h2903870.stratoserver.net/schueler/schueler.htm");
         } catch (IOException e) {
             e.printStackTrace();
         }
