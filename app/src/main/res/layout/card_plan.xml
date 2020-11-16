@@ -24,14 +24,12 @@
                 android:id="@+id/lesson"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1"
+                android:text=""
                 android:background="@drawable/circle"
                 android:gravity="center"
                 android:textColor="@color/gray"
                 android:textSize="24sp"
                 android:layout_margin="5dp"
-
-
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"/>
 
@@ -39,12 +37,10 @@
                 android:id="@+id/subject"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Erdkunde"
+                android:text=""
                 android:textColor="@color/gray"
                 android:textSize="20sp"
                 android:layout_margin="5dp"
-
-
                 android:layout_toEndOf="@id/lesson"
                 android:layout_centerVertical="true"/>
 
@@ -57,78 +53,12 @@
                 android:paddingRight="10dp"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
-                android:text="Fällt aus"
+                android:text=""
                 android:textSize="16sp"
                 android:textStyle="bold"
                 android:textColor="@color/colorPrimary"
                 android:background="@drawable/rectangle"
-                android:backgroundTint="@color/red"
-
-
-                android:layout_centerVertical="true"
-                android:layout_alignParentEnd="true"/>
-
-        </RelativeLayout>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="5dp"
-        app:cardElevation="8dp"
-        android:layout_margin="10dp">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_margin="5dp">
-
-            <TextView
-                android:id="@+id/lesson2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="3"
-                android:background="@drawable/circle"
-                android:gravity="center"
-                android:textColor="@color/gray"
-                android:textSize="24sp"
-                android:layout_margin="5dp"
-
-
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"/>
-
-            <TextView
-                android:id="@+id/subject2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Politik"
-                android:textColor="@color/gray"
-                android:textSize="20sp"
-                android:layout_margin="5dp"
-
-
-                android:layout_toEndOf="@id/lesson2"
-                android:layout_centerVertical="true"/>
-
-            <TextView
-                android:id="@+id/case02"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:text="Vertretung"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/colorPrimary"
-                android:background="@drawable/rectangle"
-                android:backgroundTint="@color/blue"
-
-
+                android:backgroundTint=""
                 android:layout_centerVertical="true"
                 android:layout_alignParentEnd="true"/>
 
