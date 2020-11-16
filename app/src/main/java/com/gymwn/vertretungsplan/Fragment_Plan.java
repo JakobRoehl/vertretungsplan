@@ -92,14 +92,14 @@ public class Fragment_Plan extends Fragment {
 
         for(int j = 0; j < JSONday1.length(); j++) {
             try {
-                classesday1[j] = String.valueOf(JSONday1.names().get(j));
+                classesday1[j] = String.valueOf(JSONday1.names().get(j)).replace("-", "/");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
         for(int k = 0; k < JSONday2.length(); k++) {
             try {
-                classesday2[k] = String.valueOf(JSONday2.names().get(k));
+                classesday2[k] = String.valueOf(JSONday2.names().get(k)).replace("-", "/");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
