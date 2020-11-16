@@ -1,0 +1,393 @@
+Index: app/src/main/res/layout/fragment_info.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<LinearLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:orientation=\"vertical\"\r\n    tools:context=\".MainActivity\">\r\n\r\n    <androidx.cardview.widget.CardView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        app:cardCornerRadius=\"5dp\"\r\n        app:cardElevation=\"8dp\"\r\n        android:layout_margin=\"10dp\"\r\n        android:foreground=\"?android:attr/selectableItemBackground\"\r\n        android:clickable=\"true\">\r\n\r\n        <RelativeLayout\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:orientation=\"horizontal\"\r\n            android:layout_margin=\"5dp\">\r\n\r\n            <TextView\r\n                android:id=\"@+id/lesson\"\r\n                android:layout_width=\"wrap_content\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:text=\"1\"\r\n                android:background=\"@drawable/circle\"\r\n                android:gravity=\"center\"\r\n                android:textColor=\"@color/gray\"\r\n                android:textSize=\"24sp\"\r\n                android:layout_margin=\"5dp\"\r\n\r\n\r\n                android:layout_alignParentStart=\"true\"\r\n                android:layout_centerVertical=\"true\"/>\r\n\r\n            <TextView\r\n                android:id=\"@+id/subject\"\r\n                android:layout_width=\"wrap_content\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:text=\"Erdkunde\"\r\n                android:textColor=\"@color/gray\"\r\n                android:textSize=\"20sp\"\r\n                android:layout_margin=\"5dp\"\r\n\r\n\r\n                android:layout_toEndOf=\"@id/lesson\"\r\n                android:layout_centerVertical=\"true\"/>\r\n\r\n            <TextView\r\n                android:id=\"@+id/case0\"\r\n                android:layout_width=\"wrap_content\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:layout_margin=\"5dp\"\r\n                android:paddingLeft=\"10dp\"\r\n                android:paddingRight=\"10dp\"\r\n                android:paddingTop=\"5dp\"\r\n                android:paddingBottom=\"5dp\"\r\n                android:text=\"Fällt aus\"\r\n                android:textSize=\"16sp\"\r\n                android:textStyle=\"bold\"\r\n                android:textColor=\"@color/colorPrimary\"\r\n                android:background=\"@drawable/rectangle\"\r\n                android:backgroundTint=\"@color/red\"\r\n\r\n\r\n                android:layout_centerVertical=\"true\"\r\n                android:layout_alignParentEnd=\"true\"/>\r\n\r\n        </RelativeLayout>\r\n    </androidx.cardview.widget.CardView>\r\n\r\n    <androidx.cardview.widget.CardView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        app:cardCornerRadius=\"5dp\"\r\n        app:cardElevation=\"8dp\"\r\n        android:layout_margin=\"10dp\"\r\n        android:foreground=\"?android:attr/selectableItemBackground\"\r\n        android:clickable=\"true\">\r\n\r\n        <RelativeLayout\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:orientation=\"horizontal\"\r\n            android:layout_margin=\"5dp\">\r\n\r\n            <TextView\r\n                android:id=\"@+id/lesson2\"\r\n                android:layout_width=\"wrap_content\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:text=\"3\"\r\n                android:background=\"@drawable/circle\"\r\n                android:gravity=\"center\"\r\n                android:textColor=\"@color/gray\"\r\n                android:textSize=\"24sp\"\r\n                android:layout_margin=\"5dp\"\r\n\r\n\r\n                android:layout_alignParentStart=\"true\"\r\n                android:layout_centerVertical=\"true\"/>\r\n\r\n            <TextView\r\n                android:id=\"@+id/subject2\"\r\n                android:layout_width=\"wrap_content\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:text=\"Politik\"\r\n                android:textColor=\"@color/gray\"\r\n                android:textSize=\"20sp\"\r\n                android:layout_margin=\"5dp\"\r\n\r\n\r\n                android:layout_toEndOf=\"@id/lesson2\"\r\n                android:layout_centerVertical=\"true\"/>\r\n\r\n            <TextView\r\n                android:id=\"@+id/case02\"\r\n                android:layout_width=\"wrap_content\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:layout_margin=\"5dp\"\r\n                android:paddingLeft=\"10dp\"\r\n                android:paddingRight=\"10dp\"\r\n                android:paddingTop=\"5dp\"\r\n                android:paddingBottom=\"5dp\"\r\n                android:text=\"Vertretung\"\r\n                android:textSize=\"16sp\"\r\n                android:textStyle=\"bold\"\r\n                android:textColor=\"@color/colorPrimary\"\r\n                android:background=\"@drawable/rectangle\"\r\n                android:backgroundTint=\"@color/blue\"\r\n\r\n\r\n                android:layout_centerVertical=\"true\"\r\n                android:layout_alignParentEnd=\"true\"/>\r\n\r\n        </RelativeLayout>\r\n    </androidx.cardview.widget.CardView>\r\n</LinearLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/fragment_info.xml	(revision 88cd9d731096a1af1fe5a21b16c95c1491e7b20b)
++++ app/src/main/res/layout/fragment_info.xml	(date 1605556696227)
+@@ -1,141 +1,12 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+-    xmlns:app="http://schemas.android.com/apk/res-auto"
+-    xmlns:tools="http://schemas.android.com/tools"
+-    android:layout_width="match_parent"
+-    android:layout_height="match_parent"
+-    android:orientation="vertical"
+-    tools:context=".MainActivity">
+-
+-    <androidx.cardview.widget.CardView
+-        android:layout_width="match_parent"
+-        android:layout_height="wrap_content"
+-        app:cardCornerRadius="5dp"
+-        app:cardElevation="8dp"
+-        android:layout_margin="10dp"
+-        android:foreground="?android:attr/selectableItemBackground"
+-        android:clickable="true">
+-
+-        <RelativeLayout
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content"
+-            android:orientation="horizontal"
+-            android:layout_margin="5dp">
+-
+-            <TextView
+-                android:id="@+id/lesson"
+-                android:layout_width="wrap_content"
+-                android:layout_height="wrap_content"
+-                android:text="1"
+-                android:background="@drawable/circle"
+-                android:gravity="center"
+-                android:textColor="@color/gray"
+-                android:textSize="24sp"
+-                android:layout_margin="5dp"
+-
+-
+-                android:layout_alignParentStart="true"
+-                android:layout_centerVertical="true"/>
+-
+-            <TextView
+-                android:id="@+id/subject"
+-                android:layout_width="wrap_content"
+-                android:layout_height="wrap_content"
+-                android:text="Erdkunde"
+-                android:textColor="@color/gray"
+-                android:textSize="20sp"
+-                android:layout_margin="5dp"
+-
+-
+-                android:layout_toEndOf="@id/lesson"
+-                android:layout_centerVertical="true"/>
+-
+-            <TextView
+-                android:id="@+id/case0"
+-                android:layout_width="wrap_content"
+-                android:layout_height="wrap_content"
+-                android:layout_margin="5dp"
+-                android:paddingLeft="10dp"
+-                android:paddingRight="10dp"
+-                android:paddingTop="5dp"
+-                android:paddingBottom="5dp"
+-                android:text="Fällt aus"
+-                android:textSize="16sp"
+-                android:textStyle="bold"
+-                android:textColor="@color/colorPrimary"
+-                android:background="@drawable/rectangle"
+-                android:backgroundTint="@color/red"
+-
+-
+-                android:layout_centerVertical="true"
+-                android:layout_alignParentEnd="true"/>
+-
+-        </RelativeLayout>
+-    </androidx.cardview.widget.CardView>
+-
+-    <androidx.cardview.widget.CardView
+-        android:layout_width="match_parent"
+-        android:layout_height="wrap_content"
+-        app:cardCornerRadius="5dp"
+-        app:cardElevation="8dp"
+-        android:layout_margin="10dp"
+-        android:foreground="?android:attr/selectableItemBackground"
+-        android:clickable="true">
++<RelativeLayout
++    xmlns:android="http://schemas.android.com/apk/res/android"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent">
+ 
+-        <RelativeLayout
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content"
+-            android:orientation="horizontal"
+-            android:layout_margin="5dp">
+-
+-            <TextView
+-                android:id="@+id/lesson2"
+-                android:layout_width="wrap_content"
+-                android:layout_height="wrap_content"
+-                android:text="3"
+-                android:background="@drawable/circle"
+-                android:gravity="center"
+-                android:textColor="@color/gray"
+-                android:textSize="24sp"
+-                android:layout_margin="5dp"
++    <androidx.recyclerview.widget.RecyclerView
++        android:id="@+id/lesson_recyclerview"
++        android:layout_width="match_parent"
++        android:layout_height="match_parent"/>
+ 
+-
+-                android:layout_alignParentStart="true"
+-                android:layout_centerVertical="true"/>
+-
+-            <TextView
+-                android:id="@+id/subject2"
+-                android:layout_width="wrap_content"
+-                android:layout_height="wrap_content"
+-                android:text="Politik"
+-                android:textColor="@color/gray"
+-                android:textSize="20sp"
+-                android:layout_margin="5dp"
+-
+-
+-                android:layout_toEndOf="@id/lesson2"
+-                android:layout_centerVertical="true"/>
+-
+-            <TextView
+-                android:id="@+id/case02"
+-                android:layout_width="wrap_content"
+-                android:layout_height="wrap_content"
+-                android:layout_margin="5dp"
+-                android:paddingLeft="10dp"
+-                android:paddingRight="10dp"
+-                android:paddingTop="5dp"
+-                android:paddingBottom="5dp"
+-                android:text="Vertretung"
+-                android:textSize="16sp"
+-                android:textStyle="bold"
+-                android:textColor="@color/colorPrimary"
+-                android:background="@drawable/rectangle"
+-                android:backgroundTint="@color/blue"
+-
+-
+-                android:layout_centerVertical="true"
+-                android:layout_alignParentEnd="true"/>
+-
+-        </RelativeLayout>
+-    </androidx.cardview.widget.CardView>
+-</LinearLayout>
+\ No newline at end of file
++</RelativeLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/card_plan.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<LinearLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:orientation=\"vertical\"\r\n    tools:context=\".MainActivity\">\r\n\r\n    <androidx.cardview.widget.CardView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        app:cardCornerRadius=\"5dp\"\r\n        app:cardElevation=\"8dp\"\r\n        android:layout_margin=\"10dp\">\r\n\r\n        <RelativeLayout\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:orientation=\"horizontal\"\r\n            android:layout_margin=\"5dp\">\r\n\r\n            <TextView\r\n                android:id=\"@+id/lesson\"\r\n                android:layout_width=\"wrap_content\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:text=\"\"\r\n                android:background=\"@drawable/circle\"\r\n                android:gravity=\"center\"\r\n                android:textColor=\"@color/gray\"\r\n                android:textSize=\"24sp\"\r\n                android:layout_margin=\"5dp\"\r\n                android:layout_alignParentStart=\"true\"\r\n                android:layout_centerVertical=\"true\"/>\r\n\r\n            <TextView\r\n                android:id=\"@+id/subject\"\r\n                android:layout_width=\"wrap_content\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:text=\"\"\r\n                android:textColor=\"@color/gray\"\r\n                android:textSize=\"20sp\"\r\n                android:layout_margin=\"5dp\"\r\n                android:layout_toEndOf=\"@id/lesson\"\r\n                android:layout_centerVertical=\"true\"/>\r\n\r\n            <TextView\r\n                android:id=\"@+id/case0\"\r\n                android:layout_width=\"wrap_content\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:layout_margin=\"5dp\"\r\n                android:paddingLeft=\"10dp\"\r\n                android:paddingRight=\"10dp\"\r\n                android:paddingTop=\"5dp\"\r\n                android:paddingBottom=\"5dp\"\r\n                android:text=\"\"\r\n                android:textSize=\"16sp\"\r\n                android:textStyle=\"bold\"\r\n                android:textColor=\"@color/colorPrimary\"\r\n                android:background=\"@drawable/rectangle\"\r\n                android:backgroundTint=\"\"\r\n                android:layout_centerVertical=\"true\"\r\n                android:layout_alignParentEnd=\"true\"/>\r\n\r\n        </RelativeLayout>\r\n    </androidx.cardview.widget.CardView>\r\n</LinearLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/card_plan.xml	(revision 88cd9d731096a1af1fe5a21b16c95c1491e7b20b)
++++ app/src/main/res/layout/card_plan.xml	(date 1605556608765)
+@@ -58,7 +58,7 @@
+                 android:textStyle="bold"
+                 android:textColor="@color/colorPrimary"
+                 android:background="@drawable/rectangle"
+-                android:backgroundTint=""
++
+                 android:layout_centerVertical="true"
+                 android:layout_alignParentEnd="true"/>
+ 
+Index: app/src/main/java/com/gymwn/vertretungsplan/Fragment_Plan.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.gymwn.vertretungsplan;\r\n\r\nimport android.app.AlertDialog;\r\nimport android.app.ProgressDialog;\r\nimport android.content.Context;\r\nimport android.content.DialogInterface;\r\nimport android.graphics.Color;\r\nimport android.net.ConnectivityManager;\r\nimport android.net.NetworkInfo;\r\nimport android.os.AsyncTask;\r\nimport android.os.Bundle;\r\nimport android.text.Html;\r\nimport android.util.Log;\r\nimport android.view.LayoutInflater;\r\nimport android.view.View;\r\nimport android.view.ViewGroup;\r\nimport android.widget.AdapterView;\r\nimport android.widget.ArrayAdapter;\r\nimport android.widget.ImageView;\r\nimport android.widget.Spinner;\r\nimport android.widget.TextView;\r\nimport android.widget.Toast;\r\nimport androidx.annotation.NonNull;\r\nimport androidx.annotation.Nullable;\r\nimport androidx.fragment.app.Fragment;\r\nimport org.apache.http.HttpResponse;\r\nimport org.apache.http.client.HttpClient;\r\nimport org.apache.http.client.methods.HttpGet;\r\nimport org.apache.http.impl.client.DefaultHttpClient;\r\nimport org.json.JSONArray;\r\nimport org.json.JSONException;\r\nimport org.json.JSONObject;\r\n\r\nimport java.io.BufferedReader;\r\nimport java.io.IOException;\r\nimport java.io.InputStream;\r\nimport java.io.InputStreamReader;\r\nimport java.lang.reflect.Array;\r\nimport java.util.Iterator;\r\nimport java.util.concurrent.ExecutionException;\r\n\r\n\r\npublic class Fragment_Plan extends Fragment {\r\n    private ProgressDialog mainloaderdialog;\r\n    private View view;\r\n    private Spinner day_spinner, class_spinner;\r\n    private String day1, day2;\r\n    private String[] days = new String[2];\r\n\r\n    @Nullable\r\n    @Override\r\n    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {\r\n        view = inflater.inflate(R.layout.fragment_plan, container,false);\r\n        final TextView tv = (TextView)view.findViewById(R.id.text1);\r\n        final Spinner dayspinner = view.findViewById(R.id.day_spinner);\r\n        final Spinner class_spinner = view.findViewById(R.id.class_spinner);\r\n        JSONObject jsonObject = new JSONObject();\r\n        JSONObject jsonObject2 = new JSONObject();\r\n        try {\r\n            day1 = JSONgetter(\"https://h2903870.stratoserver.net/schueler/schueler.htm\");\r\n            day2 = JSONgetter(\"https://h2903870.stratoserver.net/schueler/schueler2.htm\");\r\n            jsonObject = new JSONObject(day1);\r\n            jsonObject2 = new JSONObject(day2);\r\n            try {\r\n                days[0] = jsonObject.names().get(0).toString();\r\n                days[1] = jsonObject2.names().get(0).toString();\r\n\r\n            } catch (JSONException e) {\r\n                e.printStackTrace();\r\n            }\r\n\r\n\r\n        } catch (IOException e) {\r\n            e.printStackTrace();\r\n        } catch (JSONException e) {\r\n            e.printStackTrace();\r\n        }\r\n\r\n\r\n        JSONObject JSONday1 = null;\r\n        JSONObject JSONday2 = null;\r\n\r\n\r\n        try {\r\n            JSONday1 = jsonObject.getJSONObject(days[0]);\r\n            JSONday2 = jsonObject2.getJSONObject(days[1]);\r\n        } catch (JSONException e) {\r\n            e.printStackTrace();\r\n        }\r\n        final String[] classesday1 = new String[JSONday1.length()];\r\n        final String[] classesday2 = new String[JSONday2.length()];\r\n\r\n        for(int j = 0; j < JSONday1.length(); j++) {\r\n            try {\r\n                classesday1[j] = String.valueOf(JSONday1.names().get(j)).replace(\"-\", \"/\");\r\n            } catch (JSONException e) {\r\n                e.printStackTrace();\r\n            }\r\n        }\r\n        for(int k = 0; k < JSONday2.length(); k++) {\r\n            try {\r\n                classesday2[k] = String.valueOf(JSONday2.names().get(k)).replace(\"-\", \"/\");\r\n            } catch (JSONException e) {\r\n                e.printStackTrace();\r\n            }\r\n        }\r\n\r\n        ArrayAdapter<String> dayadapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, days);\r\n        dayspinner.setAdapter(dayadapter);\r\n\r\n        tv.setText(day1);\r\n\r\n        dayspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {\r\n            @Override\r\n            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {\r\n                ArrayAdapter<String> classadapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, classesday1);\r\n                switch(i) {\r\n                    case 0:\r\n                        classadapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, classesday1);\r\n                        break;\r\n                    case 1:\r\n                        classadapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, classesday2);\r\n                        break;\r\n                    default:\r\n                }\r\n                class_spinner.setAdapter(classadapter);\r\n\r\n\r\n            }\r\n\r\n            @Override\r\n            public void onNothingSelected(AdapterView<?> adapterView) {\r\n                ArrayAdapter<String> classadapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, classesday1);\r\n                class_spinner.setAdapter(classadapter);\r\n            }\r\n\r\n        });\r\n        //ArrayAdapter<String> classadapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, classes);\r\n        //dayspinner.setAdapter(classadapter);\r\n\r\n\r\n\r\n        return view;\r\n    }\r\n    public class myAsyncTask extends AsyncTask<String, String, String> {\r\n        public String html;\r\n\r\n        @Override\r\n        public String doInBackground(String... params) {\r\n            HttpClient client = new DefaultHttpClient();\r\n            HttpGet request = new HttpGet(params[0]);\r\n            HttpResponse response = null;\r\n            try {\r\n                response = client.execute(request);\r\n            } catch (IOException e) {\r\n                e.printStackTrace();\r\n            }\r\n\r\n            String html = \"\";\r\n            InputStream in = null;\r\n            try {\r\n                in = response.getEntity().getContent();\r\n            } catch (IOException e) {\r\n                e.printStackTrace();\r\n            }\r\n            BufferedReader reader = new BufferedReader(new InputStreamReader(in));\r\n            StringBuilder str = new StringBuilder();\r\n            String line = null;\r\n            while(true)\r\n            {\r\n                try {\r\n                    if (!((line = reader.readLine()) != null)) break;\r\n                } catch (IOException e) {\r\n                    e.printStackTrace();\r\n                }\r\n                str.append(line);\r\n            }\r\n            try {\r\n                in.close();\r\n            } catch (IOException e) {\r\n                e.printStackTrace();\r\n            }\r\n            html = str.toString();\r\n           // Toast.makeText(getActivity(), html, Toast.LENGTH_LONG).show();\r\n            mainloaderdialog.dismiss();\r\n            return html;\r\n        }\r\n\r\n    }\r\n    public String JSONgetter(final String surl) throws IOException {\r\n\r\n        if (isNetworkAvailable()) {\r\n            mainloaderdialog = new ProgressDialog(getActivity(), R.style.black_specs);\r\n            mainloaderdialog.setMessage(\"Empfange Daten\");\r\n            mainloaderdialog.setCancelable(false);\r\n            mainloaderdialog.show();\r\n\r\n\r\n            myAsyncTask task = new myAsyncTask();\r\n            try {\r\n\r\n                // Toast.makeText(getActivity(), task.execute(surl).get(), Toast.LENGTH_LONG).show();\r\n                //    Log.v(\"\", task.execute(surl).get());\r\n                //TextView tv = (TextView)view.findViewById(R.id.text1);\r\n                HTMLtoJSONparser htmLtoJSONparser = new HTMLtoJSONparser();\r\n                return (htmLtoJSONparser.main(task.execute(surl).get()));\r\n\r\n            } catch (ExecutionException e) {\r\n                e.printStackTrace();\r\n            } catch (InterruptedException e) {\r\n                e.printStackTrace();\r\n            } catch (JSONException e) {\r\n                e.printStackTrace();\r\n            }\r\n\r\n            //Toast.makeText(getActivity(), html, Toast.LENGTH_LONG).show();\r\n\r\n        } else {\r\n            AlertDialog.Builder builder1 = new AlertDialog.Builder(getActivity(), R.style.black_specs);\r\n            builder1.setMessage(\"Es besteht keine Internetverbindung!\");\r\n            builder1.setTitle(\"Keine Verbindung\");\r\n            builder1.setIcon(R.drawable.ic_baseline_wifi_off_24);\r\n\r\n            builder1.setCancelable(false);\r\n            builder1.setPositiveButton(\r\n                    \"Erneut versuchen\",\r\n                    new DialogInterface.OnClickListener() {\r\n                        public void onClick(DialogInterface dialog, int id) {\r\n                            dialog.cancel();\r\n                            try {\r\n                                JSONgetter(surl);\r\n                            } catch (IOException e) {\r\n                                e.printStackTrace();\r\n                            }\r\n                        }\r\n                    });\r\n\r\n            AlertDialog alert11 = builder1.create();\r\n            alert11.show();\r\n            ImageView imageView = alert11.findViewById(android.R.id.icon);\r\n            if (imageView != null)\r\n                imageView.setColorFilter(Color.BLACK, android.graphics.PorterDuff.Mode.SRC_IN);\r\n        }\r\n        return \"\";\r\n    }\r\n    private boolean isNetworkAvailable() {\r\n        ConnectivityManager connectivityManager = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);\r\n        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();\r\n        return activeNetworkInfo != null;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/gymwn/vertretungsplan/Fragment_Plan.java	(revision 88cd9d731096a1af1fe5a21b16c95c1491e7b20b)
++++ app/src/main/java/com/gymwn/vertretungsplan/Fragment_Plan.java	(date 1605559927846)
+@@ -23,6 +23,11 @@
+ import androidx.annotation.NonNull;
+ import androidx.annotation.Nullable;
+ import androidx.fragment.app.Fragment;
++import androidx.recyclerview.widget.DefaultItemAnimator;
++import androidx.recyclerview.widget.GridLayoutManager;
++import androidx.recyclerview.widget.LinearLayoutManager;
++import androidx.recyclerview.widget.RecyclerView;
++
+ import org.apache.http.HttpResponse;
+ import org.apache.http.client.HttpClient;
+ import org.apache.http.client.methods.HttpGet;
+@@ -36,7 +41,9 @@
+ import java.io.InputStream;
+ import java.io.InputStreamReader;
+ import java.lang.reflect.Array;
++import java.util.ArrayList;
+ import java.util.Iterator;
++import java.util.List;
+ import java.util.concurrent.ExecutionException;
+ 
+ 
+@@ -46,7 +53,9 @@
+     private Spinner day_spinner, class_spinner;
+     private String day1, day2;
+     private String[] days = new String[2];
+-
++    private RecyclerView lesson_recyclerview;
++    private List<LessonRecyclerviewSetterGetter> details;
++    private LessonRecyclerviewAdapter lessonRecyclerviewAdapter;
+     @Nullable
+     @Override
+     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+@@ -138,10 +147,25 @@
+         //ArrayAdapter<String> classadapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, classes);
+         //dayspinner.setAdapter(classadapter);
+ 
++        lesson_recyclerview = (RecyclerView)view.findViewById(R.id.lesson_recyclerview);
++
++        details = new ArrayList<>();
++        lessonRecyclerviewAdapter = new LessonRecyclerviewAdapter(getActivity(), details);
++
++  //      RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
++        //lesson_recyclerview.setLayoutManager(layoutManager);
++//        lesson_recyclerview.setItemAnimator(new DefaultItemAnimator());
++
++        //lesson_recyclerview.setAdapter(lessonRecyclerviewAdapter);
++
+ 
+ 
+         return view;
+     }
++    private void prepareDetails(String s) {
++
++    }
++
+     public class myAsyncTask extends AsyncTask<String, String, String> {
+         public String html;
+ 
+Index: app/src/main/java/com/gymwn/vertretungsplan/LessonRecyclerviewSetterGetter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/gymwn/vertretungsplan/LessonRecyclerviewSetterGetter.java	(date 1605558926226)
++++ app/src/main/java/com/gymwn/vertretungsplan/LessonRecyclerviewSetterGetter.java	(date 1605558926226)
+@@ -0,0 +1,76 @@
++package com.gymwn.vertretungsplan;
++
++public class LessonRecyclerviewSetterGetter {
++    String subject = "";
++    String room = "";
++    String info = "";
++    boolean exercises = false;
++    boolean free = false;
++    boolean replace = false;
++    String elso = "";
++    String lesson = "";
++
++    public String getLesson() {
++        return lesson;
++    }
++
++    public void setLessom(String lesson) {
++        this.lesson = lesson;
++    }
++
++    public String getSubject() {
++        return subject;
++    }
++
++    public void setSubject(String subject) {
++        this.subject = subject;
++    }
++
++    public String getRoom() {
++        return room;
++    }
++
++    public void setRoom(String room) {
++        this.room = room;
++    }
++
++    public String getInfo() {
++        return info;
++    }
++
++    public void setInfo(String info) {
++        this.info = info;
++    }
++
++    public boolean isExercises() {
++        return exercises;
++    }
++
++    public void setExercises(boolean exercises) {
++        this.exercises = exercises;
++    }
++
++    public boolean isFree() {
++        return free;
++    }
++
++    public void setFree(boolean free) {
++        this.free = free;
++    }
++
++    public boolean isReplace() {
++        return replace;
++    }
++
++    public void setReplace(boolean replace) {
++        this.replace = replace;
++    }
++
++    public String getElso() {
++        return elso;
++    }
++
++    public void setElso(String elso) {
++        this.elso = elso;
++    }
++}
+Index: app/src/main/java/com/gymwn/vertretungsplan/LessonRecyclerviewAdapter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/gymwn/vertretungsplan/LessonRecyclerviewAdapter.java	(date 1605559081034)
++++ app/src/main/java/com/gymwn/vertretungsplan/LessonRecyclerviewAdapter.java	(date 1605559081034)
+@@ -0,0 +1,53 @@
++package com.gymwn.vertretungsplan;
++
++import android.content.Context;
++import android.view.LayoutInflater;
++import android.view.View;
++import android.view.ViewGroup;
++import android.widget.TextView;
++
++import androidx.annotation.NonNull;
++import androidx.recyclerview.widget.RecyclerView;
++
++import java.util.List;
++
++public class LessonRecyclerviewAdapter extends RecyclerView.Adapter<LessonRecyclerviewAdapter.viewholder> {
++
++    private Context context;
++    private List<LessonRecyclerviewSetterGetter> details;
++
++    public LessonRecyclerviewAdapter(Context context, List<LessonRecyclerviewSetterGetter> details) {
++        this.context = context;
++        this.details = details;
++    }
++
++    public class viewholder extends RecyclerView.ViewHolder {
++        public TextView case0tv, subjecttv, lessontv;
++        public viewholder(View view) {
++            super(view);
++            case0tv = view.findViewById(R.id.case0);
++            subjecttv = view.findViewById(R.id.subject);
++            lessontv = view.findViewById(R.id.lesson);
++        }
++    }
++
++    @NonNull
++    @Override
++    public viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
++        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_plan, parent, false);
++        return new viewholder(itemView);
++    }
++
++    @Override
++    public void onBindViewHolder(final viewholder holder, int position) {
++        LessonRecyclerviewSetterGetter lessonRecyclerviewSetterGetter = details.get(position);
++        holder.subjecttv.setText(lessonRecyclerviewSetterGetter.getSubject());
++        holder.lessontv.setText(lessonRecyclerviewSetterGetter.getLesson());
++        //holder.case0tv.setText(lessonRecyclerviewSetterGetter.get);
++    }
++
++    @Override
++    public int getItemCount() {
++        return details.size();
++    }
++}
