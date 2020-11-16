@@ -79,7 +79,8 @@
             android:layout_height="wrap_content"
             android:text="Version:"
             android:textColor="@color/gray"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:textStyle="bold"/>
 
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>
