@@ -24,6 +24,8 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONException;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -39,7 +41,7 @@ public class Fragment_Plan extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_plan, container,false);
         try {
-            HTMLgetter("https://h2903870.stratoserver.net/schueler/schueler.htm");
+            HTMLgetter("https://h2903870.stratoserver.net/schueler/schueler2.htm");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -106,18 +108,21 @@ public class Fragment_Plan extends Fragment {
                // Toast.makeText(getActivity(), task.execute(surl).get(), Toast.LENGTH_LONG).show();
             //    Log.v("", task.execute(surl).get());
                 TextView tv = (TextView)view.findViewById(R.id.text1);
-                tv.setText(task.execute(surl).get());
+                HTMLtoJSONparser htmLtoJSONparser = new HTMLtoJSONparser();
+                tv.setText(htmLtoJSONparser.main(task.execute(surl).get()));
 
             } catch (ExecutionException e) {
                 e.printStackTrace();
             } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (JSONException e) {
                 e.printStackTrace();
             }
 
             //Toast.makeText(getActivity(), html, Toast.LENGTH_LONG).show();
 
         } else {
-            AlertDialog.Builder builder1 = new AlertDialog.Builder(getActivity());
+            AlertDialog.Builder builder1 = new AlertDialog.Builder(getActivity(), R.style.black_specs);
             builder1.setMessage("Es besteht keine Internetverbindung!");
             builder1.setTitle("Keine Verbindung");
             builder1.setIcon(R.drawable.ic_baseline_wifi_off_24);
