@@ -28,7 +28,7 @@
                 android:background="@drawable/circle"
                 android:gravity="center"
                 android:textColor="@color/gray"
-                android:textSize="32sp"
+                android:textSize="24sp"
                 android:layout_margin="5dp"
 
 
@@ -41,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:text="Erdkunde"
                 android:textColor="@color/gray"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 android:layout_margin="5dp"
 
 
@@ -92,7 +92,7 @@
                 android:background="@drawable/circle"
                 android:gravity="center"
                 android:textColor="@color/gray"
-                android:textSize="32sp"
+                android:textSize="24sp"
                 android:layout_margin="5dp"
 
 
@@ -105,7 +105,7 @@
                 android:layout_height="wrap_content"
                 android:text="Politik"
                 android:textColor="@color/gray"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 android:layout_margin="5dp"
 
 
