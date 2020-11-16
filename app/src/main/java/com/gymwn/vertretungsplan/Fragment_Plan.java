@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
@@ -36,15 +37,19 @@ import java.util.concurrent.ExecutionException;
 public class Fragment_Plan extends Fragment {
     private ProgressDialog mainloaderdialog;
     private View view;
+    private Spinner day_spinner, class_spinner;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_plan, container,false);
+        TextView tv = (TextView)view.findViewById(R.id.text1);
         try {
-            HTMLgetter("https://h2903870.stratoserver.net/schueler/schueler.htm");
+            tv.setText(JSONgetter("https://h2903870.stratoserver.net/schueler/schueler.htm"));
         } catch (IOException e) {
             e.printStackTrace();
         }
+
 
         return view;
     }
@@ -93,23 +98,23 @@ public class Fragment_Plan extends Fragment {
         }
 
     }
-    public void HTMLgetter(final String surl) throws IOException {
+    public String JSONgetter(final String surl) throws IOException {
 
-        if(isNetworkAvailable()) {
+        if (isNetworkAvailable()) {
             mainloaderdialog = new ProgressDialog(getActivity(), R.style.black_specs);
             mainloaderdialog.setMessage("Empfange Daten");
             mainloaderdialog.setCancelable(false);
             mainloaderdialog.show();
 
 
-            myAsyncTask task= new myAsyncTask();
+            myAsyncTask task = new myAsyncTask();
             try {
 
-               // Toast.makeText(getActivity(), task.execute(surl).get(), Toast.LENGTH_LONG).show();
-            //    Log.v("", task.execute(surl).get());
-                TextView tv = (TextView)view.findViewById(R.id.text1);
+                // Toast.makeText(getActivity(), task.execute(surl).get(), Toast.LENGTH_LONG).show();
+                //    Log.v("", task.execute(surl).get());
+                //TextView tv = (TextView)view.findViewById(R.id.text1);
                 HTMLtoJSONparser htmLtoJSONparser = new HTMLtoJSONparser();
-                tv.setText(htmLtoJSONparser.main(task.execute(surl).get()));
+                return (htmLtoJSONparser.main(task.execute(surl).get()));
 
             } catch (ExecutionException e) {
                 e.printStackTrace();
@@ -134,7 +139,7 @@ public class Fragment_Plan extends Fragment {
                         public void onClick(DialogInterface dialog, int id) {
                             dialog.cancel();
                             try {
-                                HTMLgetter(surl);
+                                JSONgetter(surl);
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
@@ -147,6 +152,7 @@ public class Fragment_Plan extends Fragment {
             if (imageView != null)
                 imageView.setColorFilter(Color.BLACK, android.graphics.PorterDuff.Mode.SRC_IN);
         }
+        return "";
     }
     private boolean isNetworkAvailable() {
         ConnectivityManager connectivityManager = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
