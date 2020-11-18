@@ -67,6 +67,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.menu_plan:
                 setFragment(new Fragment_Plan());
                 break;
+            case R.id.menu_notification:
+                setFragment(new Fragment_notification());
+                break;
             case R.id.menu_info:
                 setFragment(new Fragment_Info());
                 break;
