@@ -10,12 +10,12 @@ public class LessonRecyclerviewSetterGetter {
     String elso = "";
     String lesson = "";
 
-    public String getLesson() {
-        return lesson;
+    public void setLesson(String lesson) {
+        this.lesson = lesson;
     }
 
-    public void setLessom(String lesson) {
-        this.lesson = lesson;
+    public String getLesson() {
+        return lesson;
     }
 
     public String getSubject() {

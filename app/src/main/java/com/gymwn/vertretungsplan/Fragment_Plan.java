@@ -118,32 +118,66 @@ public class Fragment_Plan extends Fragment {
         dayspinner.setAdapter(dayadapter);
 
 
-
+        final JSONObject finalJsonObject1 = jsonObject;
+        final JSONObject finalJsonObject2 = jsonObject2;
         dayspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                ArrayAdapter<String> classadapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, classesday1);
+
                 switch(i) {
                     case 0:
-                        classadapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, classesday1);
+                        ArrayAdapter<String> classadapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, classesday1);
+                        class_spinner.setAdapter(classadapter);
+                        try {
+                            prepareDetails(finalJsonObject1.getJSONObject(days[0]).getJSONObject(classesday1[class_spinner.getSelectedItemPosition()].replace("/", "-")));
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Toast.makeText(getActivity(), e.toString(), Toast.LENGTH_LONG).show();
+                        }
                         break;
                     case 1:
-                        classadapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, classesday2);
+                        ArrayAdapter<String> classadapter2 = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, classesday2);
+                        class_spinner.setAdapter(classadapter2);
+                        try {
+                            prepareDetails(finalJsonObject2.getJSONObject(days[1]).getJSONObject(classesday2[class_spinner.getSelectedItemPosition()].replace("/", "-")));
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Toast.makeText(getActivity(), e.toString(), Toast.LENGTH_LONG).show();
+                        }
                         break;
                     default:
                 }
-                class_spinner.setAdapter(classadapter);
 
 
+
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                //ArrayAdapter<String> classadapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, classesday1);
+                //class_spinner.setAdapter(classadapter);
+            }
+
+        });
+        class_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                String s = (dayspinner.getSelectedItemPosition() == 0) ? days[0] : days[1];
+                String[] sa = (dayspinner.getSelectedItemPosition() == 0) ? classesday1 : classesday2;
+                JSONObject jo = (dayspinner.getSelectedItemPosition() == 0) ? finalJsonObject1 : finalJsonObject2;
+                try {
+                    prepareDetails(jo.getJSONObject(s).getJSONObject(sa[class_spinner.getSelectedItemPosition()].replace("/", "-")));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast.makeText(getActivity(), e.toString(), Toast.LENGTH_LONG).show();
+                }
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                ArrayAdapter<String> classadapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, classesday1);
-                class_spinner.setAdapter(classadapter);
-            }
 
+            }
         });
+
         //ArrayAdapter<String> classadapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, classes);
         //dayspinner.setAdapter(classadapter);
 
@@ -152,17 +186,47 @@ public class Fragment_Plan extends Fragment {
         details = new ArrayList<>();
         lessonRecyclerviewAdapter = new LessonRecyclerviewAdapter(getActivity(), details);
 
-  //      RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
-        //lesson_recyclerview.setLayoutManager(layoutManager);
-//        lesson_recyclerview.setItemAnimator(new DefaultItemAnimator());
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        lesson_recyclerview.setLayoutManager(layoutManager);
+        lesson_recyclerview.setItemAnimator(new DefaultItemAnimator());
 
         //lesson_recyclerview.setAdapter(lessonRecyclerviewAdapter);
 
 
 
+
+
         return view;
     }
-    private void prepareDetails(String s) {
+    private void prepareDetails(JSONObject jsonObjectORIG) throws JSONException {
+        final String[] lessons = new String[jsonObjectORIG.length()];
+        details.clear();
+        //Toast.makeText(getActivity(), String.valueOf(jsonObjectORIG.length()), Toast.LENGTH_LONG).show();
+        for(int j = 0; j < jsonObjectORIG.length(); j++) {
+            try {
+                lessons[j] = jsonObjectORIG.names().get(j).toString();
+                JSONObject jsonObject = jsonObjectORIG.getJSONObject(lessons[j]);
+
+                LessonRecyclerviewSetterGetter lessonRecyclerviewSetterGetter = new LessonRecyclerviewSetterGetter();
+                lessonRecyclerviewSetterGetter.setElso(jsonObject.getString("elso"));
+                lessonRecyclerviewSetterGetter.setExercises(jsonObject.getBoolean("exercises"));
+                lessonRecyclerviewSetterGetter.setFree(jsonObject.getBoolean("free"));
+                lessonRecyclerviewSetterGetter.setInfo(jsonObject.getString("info"));
+                lessonRecyclerviewSetterGetter.setLesson(lessons[j].split("#")[0].replace(" ", ""));
+                lessonRecyclerviewSetterGetter.setRoom(jsonObject.getString("room"));
+                lessonRecyclerviewSetterGetter.setReplace(jsonObject.getBoolean("replace"));
+                lessonRecyclerviewSetterGetter.setSubject(jsonObject.getString("subject"));
+                //Toast.makeText(getActivity(), jsonObject.getString("subject"), Toast.LENGTH_LONG).show();
+                details.add(lessonRecyclerviewSetterGetter);
+
+            } catch (JSONException e) {
+
+                e.printStackTrace();
+            }
+        }
+
+        lesson_recyclerview.setAdapter(lessonRecyclerviewAdapter);
+        lessonRecyclerviewAdapter.notifyDataSetChanged();
 
     }
 
