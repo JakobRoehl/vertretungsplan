@@ -9,6 +9,8 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -41,6 +43,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.reflect.Array;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -60,6 +63,16 @@ public class Fragment_Plan extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_plan, container,false);
+        final Handler handler = new Handler(Looper.getMainLooper());
+        mainloaderdialog = new ProgressDialog(getActivity(), R.style.black_specs);
+        mainloaderdialog.setMessage("Empfange Daten");
+        mainloaderdialog.setCancelable(false);
+        mainloaderdialog.show();
+
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                //Do something after 100ms
 
         final Spinner dayspinner = view.findViewById(R.id.day_spinner);
         final Spinner class_spinner = view.findViewById(R.id.class_spinner);
@@ -193,7 +206,8 @@ public class Fragment_Plan extends Fragment {
         //lesson_recyclerview.setAdapter(lessonRecyclerviewAdapter);
 
 
-
+            }
+        }, 500);
 
 
         return view;
@@ -278,10 +292,8 @@ public class Fragment_Plan extends Fragment {
     public String JSONgetter(final String surl) throws IOException {
 
         if (isNetworkAvailable()) {
-            mainloaderdialog = new ProgressDialog(getActivity(), R.style.black_specs);
-            mainloaderdialog.setMessage("Empfange Daten");
-            mainloaderdialog.setCancelable(false);
-            mainloaderdialog.show();
+
+
 
 
             myAsyncTask task = new myAsyncTask();
