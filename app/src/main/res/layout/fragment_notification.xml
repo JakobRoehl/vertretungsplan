@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity"
-    >
+    tools:context=".MainActivity">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
@@ -15,7 +14,6 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_margin="16dp"
-        android:contentDescription=""
         android:src="@drawable/ic_baseline_add_24"
         android:tint="@color/colorPrimary"/>
 
@@ -24,13 +22,22 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="Hier können Benachrichtigungen für verschiedene Klassen eingestellt werden. Zum Erstellen einfach das Plus unten Rechts drücken."
-            android:textColor="@color/gray"
-            android:textSize="16sp"/>
+            app:cardElevation="8dp"
+            app:cardCornerRadius="0dp"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Hier können Benachrichtigungen für verschiedene Klassen eingestellt werden. Zum Erstellen einfach das Plus unten Rechts drücken."
+                android:textColor="@color/gray"
+                android:textSize="16sp"/>
+
+        </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -49,21 +56,56 @@
                     android:id="@+id/bell"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_baseline_notifications_24"
-                    app:tint="@color/colorAccent"
+                    android:src=""
+                    app:tint=""
                     android:layout_margin="5dp"
                     android:layout_alignParentStart="true"
-                    android:layout_centerVertical="true"/>
+                    android:layout_centerVertical="true"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"/>
 
                 <TextView
+                    android:id="@+id/lesson_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Klasse:"
+                    android:text=""
                     android:textSize="16sp"
                     android:textColor="@color/gray"
                     android:layout_margin="5dp"
                     android:layout_toEndOf="@id/bell"
                     android:layout_centerVertical="true"/>
+
+                <View
+                    android:id="@+id/anchor"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="16sp"
+                    android:textColor="@color/gray"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginEnd="40dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@id/anchor"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_edit_24"
+                    app:tint="@color/gray"
+                    android:layout_margin="5dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="?attr/selectableItemBackground"/>
 
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
